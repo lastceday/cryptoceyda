@@ -33,8 +33,16 @@ Bu projeyi hem teorik bilgimi pratiğe dökmek hem de modern şifreleme algoritm
 **CryptoCeyda**, hem kriptografi öğrenmek isteyenler hem de günlük hayatta veri güvenliğine önem veren kullanıcılar için pratik ve güvenli bir çözüm sunar.
 
 ---
+###EKRAN GÖRÜNTÜLERİ
+
 ### ANASAYFA
 
 ![Anasayfa](anasayfa.png)
 
 Anasayfamız bu şekilde gözüküyor.
+
+### SHA-256 HASH HESAPLAMA
+
+![Sha hash hesaplama](sha hash hesaplama.png)
+
+Bu ekranda, kullanıcı metin kutusuna istediği bir veriyi (örneğin "merhaba ben ceyda") girip Hesapla butonuna tıkladığında, SHA-256 algoritması ile bu verinin hash (özet) değeri hesaplanır ve ekranda gösterilir.
