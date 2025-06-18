@@ -35,6 +35,6 @@ Bu projeyi hem teorik bilgimi pratiğe dökmek hem de modern şifreleme algoritm
 ---
 ### ANASAYFA
 
-![Anasayfa](ss/anasayfa.png)
+![Anasayfa](anasayfa.png)
 
 Anasayfamız bu şekilde gözüküyor.
