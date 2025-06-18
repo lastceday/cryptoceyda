@@ -167,3 +167,7 @@ Bu ekranda, kullanıcı daha önce AES algoritması ile şifrelenmiş bir dosyay
 "Dosya Şifresini Çöz" butonuna tıkladığında, uygulama dosyanın şifresini çözer ve deşifre edilmiş dosyanın Base64 formatındaki içeriğini ekranda gösterir.
 Ayrıca, deşifre edilen dosyayı indirmek için bir buton da ekranda yer alır.
 Bu özellik, AES ile şifrelenmiş dosyaların güvenli bir şekilde geri elde edilmesini sağlar.
+---
+Geliştirici
+Ceyda Metin
+GitHub: https://github.com/lastceday
