@@ -101,3 +101,21 @@ Son olarak, şifreli dosya indirilebilir.
 Bu yöntem, büyük dosyaların hem hızlı hem de güvenli bir şekilde şifrelenmesini sağlar.
 
 
+### RSA Dosya Desifreleme
+
+![rsa dosya desifreleme](rsa-dosya-desifreleme.png)
+
+Bu ekranda, kullanıcı daha önce RSA hibrit yöntemiyle şifrelenmiş bir dosyayı seçer.
+Ayrıca, şifrelenmiş AES anahtarı ve IV bilgisini ilgili alanlara yapıştırır.
+"Dosyayı Deşifrele" butonuna tıkladığında, uygulama önce AES anahtarını ve IV'yi RSA özel anahtarı ile çözer, ardından dosyanın şifresini açar ve orijinal dosyayı indirilebilir hale getirir.
+Bu özellik, güvenli şekilde şifrelenmiş dosyaların tekrar erişilebilir olmasını sağlar.
+
+
+### AES Anahtar ve IV Oluşturma
+
+![aes anahtar olusturma ](aes-anahtar-olusturma.png)
+
+Bu ekranda, kullanıcı "Yeni Anahtar ve IV Oluştur" butonuna tıklayarak rastgele ve güvenli bir AES anahtarı ile IV (Initialization Vector) oluşturabilir.
+Oluşturulan anahtar ve IV, Base64 formatında ekranda görüntülenir.
+Yanlarındaki "Kopyala" butonları sayesinde, bu değerler kolayca panoya kopyalanabilir ve AES ile şifreleme/deşifreleme işlemlerinde kullanılabilir.
+
