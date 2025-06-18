@@ -41,11 +41,15 @@ Bu projeyi hem teorik bilgimi pratiğe dökmek hem de modern şifreleme algoritm
 
 Anasayfamız bu şekilde gözüküyor.
 
+
+
 ### SHA-256 HASH HESAPLAMA
 
 ![Sha-256 hash hesaplama](sha%20hash%20hesaplama.png)
 
 Bu ekranda, kullanıcı metin kutusuna istediği bir veriyi (örneğin "merhaba ben ceyda") girip Hesapla butonuna tıkladığında, SHA-256 algoritması ile bu verinin hash (özet) değeri hesaplanır ve ekranda gösterilir.
+
+
 
 ### SHA-256 Dosya Özeti Hesaplama
 
@@ -56,13 +60,7 @@ Kullanıcı "Dosya Seç" butonuna tıklayarak istediği dosyayı seçer ve ardı
 Seçilen dosyanın adı ve SHA-256 ile üretilen hash değeri ekranda gösterilir.
 Bu özellik, dosyanın bütünlüğünü doğrulamak veya dosya değişikliklerini tespit etmek için kullanılır.
 
-### RSA Anahtar Çifti Oluşturma
 
-![rsa anahtar çifti](rsa%20anahtar%20cifti.png)
-
-Bu ekranda, "RSA Anahtarları Oluştur" butonuna tıklayarak yeni bir RSA anahtar çifti (açık anahtar ve özel anahtar) oluşturabilirsiniz.
-Oluşturulan anahtarlar ekranda ayrı ayrı gösterilir ve yanlarındaki "Kopyala" butonları ile kolayca panoya kopyalanabilir.
-Bu anahtarlar, metin veya dosya şifreleme/deşifreleme işlemlerinde kullanılmak üzere oturumda saklanır.
 
 ### RSA Anahtar Çifti Oluşturma
 
@@ -71,4 +69,14 @@ Bu anahtarlar, metin veya dosya şifreleme/deşifreleme işlemlerinde kullanılm
 Bu ekranda, "RSA Anahtarları Oluştur" butonuna tıklayarak yeni bir RSA anahtar çifti (açık anahtar ve özel anahtar) oluşturabilirsiniz.
 Oluşturulan anahtarlar ekranda ayrı ayrı gösterilir ve yanlarındaki "Kopyala" butonları ile kolayca panoya kopyalanabilir.
 Bu anahtarlar, metin veya dosya şifreleme/deşifreleme işlemlerinde kullanılmak üzere oturumda saklanır.
+
+
+
+### RSA Metin Şifreleme
+
+![rsa metin sifreleme](rsa%20metin%20sifreleme.png)
+
+Bu ekranda, kullanıcı şifrelemek istediği metni ve (isterse) kullanmak istediği RSA açık anahtarını girer.
+"Şifrele" butonuna tıkladığında, girilen metin RSA algoritması ile şifrelenir ve ekranda şifreli metin ile birlikte kullanılan açık anahtarın bir kısmı gösterilir.
+Bu özellik, hassas metinlerin güvenli bir şekilde şifrelenmesini ve başka bir tarafa güvenle iletilmesini sağlar.
 
