@@ -1,11 +1,9 @@
 
-
 CryptoCeyda
 CryptoCeyda, Bilgi Güvenliği ve Kriptoloji dersi kapsamında geliştirdiğim, hem metin hem de dosya şifreleme/deşifreleme işlemlerini güvenli ve pratik bir şekilde gerçekleştirmeyi amaçlayan bir web uygulamasıdır.
-
 Projenin Amacı ve Geliştirilme Nedeni
-Bu projeyi hem teorik bilgimi pratiğe dökmek hem de modern şifreleme algoritmalarının gerçek hayatta nasıl kullanılabileceğini göstermek amacıyla geliştirdim. Amacım, kullanıcıların hem metin hem de dosya tabanlı verilerini kolayca şifreleyip çözebileceği, sade ve anlaşılır bir arayüze sahip, güvenli bir uygulama ortaya koymaktı.
-
+Bu projeyi hem teorik bilgimi pratiğe dökmek hem de modern şifreleme algoritmalarının gerçek hayatta nasıl kullanılabileceğini göstermek amacıyla geliştirdim.
+Amacım, kullanıcıların hem metin hem de dosya tabanlı verilerini kolayca şifreleyip çözebileceği, sade ve anlaşılır bir arayüze sahip, güvenli bir uygulama ortaya koymaktı.
 Kullanılan Teknolojiler
 .NET 6 / ASP.NET Core MVC: Uygulamanın sunucu tarafı ve web arayüzü için.
 C#: Tüm iş mantığı ve kriptografi işlemleri için ana programlama dili.
@@ -21,7 +19,7 @@ RSA ile Dosya Şifreleme/Deşifreleme (Hibrit Yöntem): Büyük dosyalar için h
 AES Anahtar ve IV Üretimi: Uygulama içerisinde güvenli ve rastgele AES anahtarı ve IV (Initialization Vector) otomatik olarak üretilebilir.
 AES ile Metin ve Dosya Şifreleme/Deşifreleme: Simetrik şifreleme algoritması olan AES ile hem metin hem de dosya şifreleme/deşifreleme işlemleri yapılabilir.
 Kullanıcı Dostu ve Modern Arayüz: Sade ve anlaşılır arayüz sayesinde, teknik bilgi gerektirmeden tüm işlemler kolayca gerçekleştirilebilir.
-Hata ve Bilgilendirme Mekanizması: Eksik veya hatalı girişlerde kullanıcıya bilgilendirici uyarılar gösterilir.  bu yazıya biraz hareket kat emoji tarzı
+Hata ve Bilgilendirme Mekanizması: Eksik veya hatalı girişlerde kullanıcıya bilgilendirici uyarılar gösterilir.
 
 ---
 
