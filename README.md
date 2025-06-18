@@ -1,6 +1,6 @@
 
 
-# CryptoCeyda
+# CryptoCeyda 🔒
 
 **CryptoCeyda**, Bilgi Güvenliği ve Kriptoloji dersi kapsamında geliştirdiğim, hem metin hem de dosya şifreleme/deşifreleme işlemlerini güvenli ve pratik bir şekilde gerçekleştirmeyi amaçlayan bir web uygulamasıdır.
 
@@ -37,10 +37,7 @@ Amacım, kullanıcıların hem metin hem de dosya tabanlı verilerini kolayca ş
 
 ---
 
-Dilersen bu metni doğrudan README.md dosyana yapıştırabilirsin!  
-Başka bir bölüm veya ek açıklama istersen yardımcı olabilirim.
 
----
 
 **CryptoCeyda**, hem kriptografi öğrenmek isteyenler hem de günlük hayatta veri güvenliğine önem veren kullanıcılar için pratik ve güvenli bir çözüm sunar.
 
