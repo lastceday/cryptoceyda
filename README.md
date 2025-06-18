@@ -43,6 +43,32 @@ Anasayfamız bu şekilde gözüküyor.
 
 ### SHA-256 HASH HESAPLAMA
 
-![Sha-256 hash hesaplama](sha%hash%hesaplama.png)
+![Sha-256 hash hesaplama](sha%20hash%20hesaplama.png)
 
 Bu ekranda, kullanıcı metin kutusuna istediği bir veriyi (örneğin "merhaba ben ceyda") girip Hesapla butonuna tıkladığında, SHA-256 algoritması ile bu verinin hash (özet) değeri hesaplanır ve ekranda gösterilir.
+
+### SHA-256 Dosya Özeti Hesaplama
+
+![Sha-256 dosya özeti](sha%20dosya%20özeti.png)
+
+Bu ekranda, kullanıcı bilgisayarından bir dosya seçerek o dosyanın SHA-256 algoritması ile özetini (hash değerini) hesaplayabilir.
+Kullanıcı "Dosya Seç" butonuna tıklayarak istediği dosyayı seçer ve ardından "Dosya Özeti Hesapla" butonuna basar.
+Seçilen dosyanın adı ve SHA-256 ile üretilen hash değeri ekranda gösterilir.
+Bu özellik, dosyanın bütünlüğünü doğrulamak veya dosya değişikliklerini tespit etmek için kullanılır.
+
+### RSA Anahtar Çifti Oluşturma
+
+![rsa anahtar çifti](rsa%20anahtar%20cifti.png)
+
+Bu ekranda, "RSA Anahtarları Oluştur" butonuna tıklayarak yeni bir RSA anahtar çifti (açık anahtar ve özel anahtar) oluşturabilirsiniz.
+Oluşturulan anahtarlar ekranda ayrı ayrı gösterilir ve yanlarındaki "Kopyala" butonları ile kolayca panoya kopyalanabilir.
+Bu anahtarlar, metin veya dosya şifreleme/deşifreleme işlemlerinde kullanılmak üzere oturumda saklanır.
+
+### RSA Anahtar Çifti Oluşturma
+
+![rsa anahtar çifti](rsa%20anahtar%20cifti.png)
+
+Bu ekranda, "RSA Anahtarları Oluştur" butonuna tıklayarak yeni bir RSA anahtar çifti (açık anahtar ve özel anahtar) oluşturabilirsiniz.
+Oluşturulan anahtarlar ekranda ayrı ayrı gösterilir ve yanlarındaki "Kopyala" butonları ile kolayca panoya kopyalanabilir.
+Bu anahtarlar, metin veya dosya şifreleme/deşifreleme işlemlerinde kullanılmak üzere oturumda saklanır.
+
