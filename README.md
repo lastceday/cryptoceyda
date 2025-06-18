@@ -119,3 +119,42 @@ Bu ekranda, kullanıcı "Yeni Anahtar ve IV Oluştur" butonuna tıklayarak rastg
 Oluşturulan anahtar ve IV, Base64 formatında ekranda görüntülenir.
 Yanlarındaki "Kopyala" butonları sayesinde, bu değerler kolayca panoya kopyalanabilir ve AES ile şifreleme/deşifreleme işlemlerinde kullanılabilir.
 
+
+### AES Metin Sifreleme
+
+![aes metin sifreleme ](aes-metin-sifreleme.png)
+
+Bu ekranda, kullanıcı şifrelemek istediği metni, AES anahtarını ve IV (Initialization Vector) bilgisini girer.
+"Şifrele" butonuna tıkladığında, girilen metin AES algoritması ile şifrelenir ve şifreli metin ekranda Base64 formatında gösterilir.
+Ayrıca, kullanılan anahtar ve IV bilgileri de sonuçla birlikte görüntülenir.
+Bu özellik, metinlerin hızlı ve güvenli bir şekilde şifrelenmesini sağlar.
+
+
+### AES Metin Desifreleme
+
+![aes metin desifreleme ](aes-metin-desifreleme.png)
+
+Bu ekranda, kullanıcı daha önce AES algoritması ile şifrelenmiş bir metni, ilgili anahtar (Base64) ve IV (Base64) bilgileriyle birlikte girer.
+"Şifreyi Çöz" butonuna tıkladığında, uygulama şifreli metni çözer ve orijinal metni ekranda gösterir.
+Bu özellik, AES ile şifrelenmiş metinlerin güvenli bir şekilde geri elde edilmesini sağlar.
+
+
+### AES Dosya Sifreleme
+
+![aes dosya sifreleme ](aes-dosya-sifreleme.png)
+
+Bu ekranda, kullanıcı bir dosya seçip AES anahtarı ve IV (Initialization Vector) bilgilerini girer.
+"Dosyayı Şifrele" butonuna tıkladığında, seçilen dosya AES algoritması ile şifrelenir.
+Şifreleme işlemi tamamlandığında, dosyanın adı, kullanılan anahtar ve IV bilgileri ile birlikte şifreli dosyanın Base64 formatındaki içeriği ekranda gösterilir.
+Ayrıca, şifreli dosyayı indirmek için bir buton da ekranda yer alır.
+Bu özellik, dosyaların hızlı ve güvenli bir şekilde şifrelenmesini ve paylaşılmasını sağlar.
+
+
+### AES Dosya Desifreleme
+
+![aes dosya desifreleme ](aes-dosya-sifre-cozme.png)
+
+Bu ekranda, kullanıcı daha önce AES algoritması ile şifrelenmiş bir dosyayı seçer ve ilgili anahtar (Base64) ile IV (Base64) bilgilerini girer.
+"Dosya Şifresini Çöz" butonuna tıkladığında, uygulama dosyanın şifresini çözer ve deşifre edilmiş dosyanın Base64 formatındaki içeriğini ekranda gösterir.
+Ayrıca, deşifre edilen dosyayı indirmek için bir buton da ekranda yer alır.
+Bu özellik, AES ile şifrelenmiş dosyaların güvenli bir şekilde geri elde edilmesini sağlar.
