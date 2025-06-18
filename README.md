@@ -42,7 +42,7 @@ Amacım, kullanıcıların hem metin hem de dosya tabanlı verilerini kolayca ş
 **CryptoCeyda**, hem kriptografi öğrenmek isteyenler hem de günlük hayatta veri güvenliğine önem veren kullanıcılar için pratik ve güvenli bir çözüm sunar.
 
 ---
-### EKRAN GÖRÜNTÜLERİ
+### EKRAN GÖRÜNTÜLERİ 💻
 
 ### Anasayfa
 
