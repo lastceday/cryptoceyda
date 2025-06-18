@@ -35,7 +35,7 @@ Bu projeyi hem teorik bilgimi pratiğe dökmek hem de modern şifreleme algoritm
 ---
 ### EKRAN GÖRÜNTÜLERİ
 
-### ANASAYFA
+### Anasayfa
 
 ![Anasayfa](anasayfa.png)
 
@@ -43,7 +43,7 @@ Anasayfamız bu şekilde gözüküyor.
 
 
 
-### SHA-256 HASH HESAPLAMA
+### SHA-256 Hash Hesaplama
 
 ![Sha-256 hash hesaplama](sha%20hash%20hesaplama.png)
 
