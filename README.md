@@ -43,6 +43,6 @@ Anasayfamız bu şekilde gözüküyor.
 
 ### SHA-256 HASH HESAPLAMA
 
-![Sha-256 hash hesaplama](sha-hash-hesaplama.png)
+![Sha-256 hash hesaplama](sha%hash%hesaplama.png)
 
 Bu ekranda, kullanıcı metin kutusuna istediği bir veriyi (örneğin "merhaba ben ceyda") girip Hesapla butonuna tıkladığında, SHA-256 algoritması ile bu verinin hash (özet) değeri hesaplanır ve ekranda gösterilir.
