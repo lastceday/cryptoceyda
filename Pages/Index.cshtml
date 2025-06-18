@@ -1,0 +1,249 @@
+﻿
+@{
+    ViewData["Title"] = "Kriptografi Aracı";
+}
+
+<!-- Başlık -->
+<h2>@ViewData["Title"]</h2>
+
+<!-- Veri Girişi ve SHA-256 Hesaplama -->
+<form method="post" action="/Crypto/Hash">
+    <h2>SHA-256 Hash Hesaplama</h2>
+    <input type="text" name="input" placeholder="Veri Girin" />
+    <button type="submit">Hesapla</button>
+</form>
+
+<!-- RSA Şifreleme -->
+<form method="post" action="/Crypto/EncryptRSA">
+    <h2>RSA Şifreleme</h2>
+    <input type="text" name="data" placeholder="Veri" />
+    <input type="text" name="publicKey" placeholder="Açık Anahtar" />
+    <button type="submit">Şifrele</button>
+</form>
+
+<!-- RSA Şifre Çözme -->
+<form method="post" action="/Crypto/DecryptRSA">
+    <h2>RSA Şifre Çözme</h2>
+    <input type="text" name="encryptedData" placeholder="Şifreli Veri" />
+    <input type="text" name="privateKey" placeholder="Özel Anahtar" />
+    <button type="submit">Şifreyi Çöz</button>
+</form>
+
+<!-- CSS Animasyonları ve Stil -->
+<style>
+    /* Genel stil */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #121212; /* Koyu arka plan */
+        color: #fff; /* Beyaz metin rengi */
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Dikey hizalama */
+    }
+
+    /* Başlık */
+    h2 {
+        font-size: 36px;
+        color: #e50914; /* Kırmızı başlık */
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    /* Ana container */
+    .container {
+        background-color: rgba(0, 0, 0, 0.6); /* Koyu şeffaf arka plan */
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Daha derin gölge */
+        width: 80%;
+        max-width: 700px;
+        margin: 20px;
+    }
+
+    /* Form elemanları */
+    form {
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        padding: 15px;
+        margin: 10px 0;
+        background-color: #444; /* Koyu gri */
+        border: 2px solid #555; /* Hafif gri kenarlık */
+        border-radius: 8px;
+        color: #fff;
+        font-size: 16px;
+        transition: border 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+        outline: none;
+    }
+
+        input[type="text"]:focus {
+            border-color: #e50914; /* Kırmızı odak rengi */
+            background-color: #555; /* Daha koyu arka plan */
+            transform: scale(1.05); /* Odaklandığında biraz büyür */
+        }
+
+    /* Buton stili */
+    button {
+        width: 80%;
+        padding: 15px;
+        font-size: 18px;
+        background-color: #e50914; /* Kırmızı buton */
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        margin-top: 15px; /* Butonlar arasındaki boşluk */
+    }
+
+        /* Butona hover ve tıklama efekti */
+        button:hover {
+            background-color: #b20600; /* Hoverda daha koyu kırmızı */
+            transform: scale(1.1); /* Hoverda buton büyür */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Hoverda gölge ekler */
+        }
+
+        button:active {
+            transform: scale(1); /* Tıklama sonrası eski boyutuna dönsün */
+        }
+
+    /* Sayfa yüklenirken içeriklerin yavaşça gelmesi */
+    .container {
+        opacity: 0;
+        transform: translateY(20px); /* Sayfa yukarıdan geliyormuş gibi */
+        animation: fadeIn 1s forwards; /* Animasyon başlangıcı */
+    }
+
+    }
+
+    /* Alt bilgi (footer) */
+    footer { 
+        text-align: center;
+        font-size: 14px;
+        margin-top: 30px;
+        color: #aaa;
+    }
+
+    /* Tablet ve mobil ekranlar için düzenlemeler */
+
+
+    input[type="text"] {
+        width: 90%;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    }
+</style>
+
+<!-- Particles.js Arka Planı için JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle",
+                stroke: {
+                    width: 0,
+                    color: "#000000"
+                },
+                polygon: {
+                    nb_sides: 5
+                }
+            },
+            opacity: {
+                value: 0.5,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 40,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 4,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "repulse"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                }
+            },
+            modes: {
+                repulse: {
+                    distance: 100,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
+        },
+        retina_detect: true
+    });
+</script>
+
+<!-- Div alanı için particles.js -->
+<div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>

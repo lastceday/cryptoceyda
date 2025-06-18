@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="container main-content">
+    <form method="post" action="/Crypto/Hash" class="card">
+        <h2>🔐 SHA-256 Hash Hesaplama</h2>
+        <input type="text" name="input" placeholder="Veri Girin" required />
+        <button type="submit">Hesapla</button>
+        @if (TempData["HashResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["HashInput"] != null)
+                {
+                    <div style="color:#fff;"><b>Girdi:</b> @TempData["HashInput"]</div>
+                }
+                <b>Sonuç:</b> @TempData["HashResult"]
+            </div>
+        }
+    </form>
+
+    <form method="post" enctype="multipart/form-data" action="/Crypto/HashFile" class="card">
+        <h2>📄 SHA-256 Dosya Özeti</h2>
+        <input type="file" name="file" required />
+        <button type="submit">Dosya Özeti Hesapla</button>
+        @if (TempData["HashFileResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["HashFileName"] != null)
+                {
+                    <div style="color:#fff;"><b>Dosya:</b> @TempData["HashFileName"]</div>
+                }
+                <b>Sonuç:</b> @TempData["HashFileResult"]
+            </div>
+        }
+    </form>
+</div>

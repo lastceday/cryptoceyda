@@ -1,0 +1,137 @@
+@* RSA.cshtml *@
+@{
+    ViewData["Title"] = "RSA İşlemleri";
+}
+
+<div class="container main-content">
+    <!-- RSA Key Generation Form -->
+    <form method="post" action="/Crypto/GenerateRSAKeys" class="card">
+        <h2>🔑 RSA Anahtar Çifti Oluşturma</h2>
+        <button type="submit" class="btn btn-primary" style="background-color: crimson; border-color: crimson;">RSA Anahtarları Oluştur</button>
+    </form>
+
+    <!-- Display Generated RSA Keys (Always visible if in session) -->
+    @if (Context.Session.GetString("RSAPublicKey") != null)
+    {
+        <div class="card" style="margin-top: 20px;">
+            <h2>Oluşturulan RSA Anahtarları</h2>
+            <div style="color:lime;"><b>Açık Anahtar (Public Key):</b></div>
+            <div class="input-group">
+                <textarea id="rsaPublicKey" rows="5" style="width:100%; background:#121212; color:lime; border:1px solid crimson; padding:10px; margin-top:5px;" readonly>@Context.Session.GetString("RSAPublicKey")</textarea>
+                <button type="button" class="btn btn-secondary" onclick="copyToClipboard('rsaPublicKey')" style="margin-left: 10px; background-color: #555; border-color: #555;">Kopyala</button>
+            </div>
+        </div>
+    }
+    @if (Context.Session.GetString("RSAPrivateKey") != null)
+    {
+        <div class="card" style="margin-top: 20px;">
+            <div style="color:lime;"><b>Özel Anahtar (Private Key):</b></div>
+            <div class="input-group">
+                <textarea id="rsaPrivateKey" rows="10" style="width:100%; background:#121212; color:lime; border:1px solid crimson; padding:10px; margin-top:5px;" readonly>@Context.Session.GetString("RSAPrivateKey")</textarea>
+                <button type="button" class="btn btn-secondary" onclick="copyToClipboard('rsaPrivateKey')" style="margin-left: 10px; background-color: #555; border-color: #555;">Kopyala</button>
+            </div>
+        </div>
+    }
+
+    <!-- RSA Text Encryption Form -->
+    <form method="post" action="/Crypto/EncryptRSA" class="card">
+        <h2>🔒 RSA Metin Şifreleme</h2>
+        <input type="text" name="data" placeholder="Şifrelenecek Metin" required />
+        <textarea name="publicKey" placeholder="RSA Açık Anahtar (Boş bırakırsanız oturumdaki kullanılır)" rows="5"></textarea>
+        <button type="submit" class="btn btn-primary" style="background-color: crimson; border-color: crimson;">Şifrele</button>
+        @if (TempData["RSAEncryptResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["RSAEncryptInput"] != null)
+                {
+                    <div style="color:#fff;"><b>Girdi:</b> @TempData["RSAEncryptInput"]</div>
+                }
+                @if (TempData["RSAEncryptKey"] != null)
+                {
+                    <div style="color:#fff;"><b>Kullanılan Açık Anahtar:</b> @TempData["RSAEncryptKey"].ToString().Substring(0, Math.Min(64, TempData["RSAEncryptKey"].ToString().Length)) ...</div>
+                }
+                <b>Şifreli Metin:</b> @TempData["RSAEncryptResult"]
+            </div>
+        }
+    </form>
+
+    <!-- RSA Text Decryption Form -->
+    <form method="post" action="/Crypto/DecryptRSA" class="card">
+        <h2>🔓 RSA Metin Deşifreleme</h2>
+        <input type="text" name="encryptedData" placeholder="Deşifrelenecek Metin" required />
+        <textarea name="privateKey" placeholder="RSA Özel Anahtar (Boş bırakırsanız oturumdaki kullanılır)" rows="10"></textarea>
+        <button type="submit">Deşifrele</button>
+        @if (TempData["RSADecryptResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["RSADecryptInput"] != null)
+                {
+                    <div style="color:#fff;"><b>Girdi:</b> @TempData["RSADecryptInput"]</div>
+                }
+                @if (TempData["RSADecryptKey"] != null)
+                {
+                    <div style="color:#fff;"><b>Kullanılan Özel Anahtar:</b> @TempData["RSADecryptKey"].ToString().Substring(0, Math.Min(64, TempData["RSADecryptKey"].ToString().Length)) ...</div>
+                }
+                <b>Deşifrelenmiş Metin:</b> @TempData["RSADecryptResult"]
+            </div>
+        }
+    </form>
+
+    <!-- RSA File Encryption Form -->
+    <form method="post" enctype="multipart/form-data" action="/Crypto/EncryptRSAFile" class="card">
+        <h2>📄 RSA Dosya Şifreleme (Hibrid)</h2>
+        <input type="file" name="file" required />
+        <textarea name="publicKey" placeholder="RSA Açık Anahtar (Boş bırakırsanız oturumdaki kullanılır)" rows="5"></textarea>
+        <button type="submit">Dosyayı Şifrele</button>
+        @if (TempData["RSAEncryptFileResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                <b>Sonuç:</b> @TempData["RSAEncryptFileResult"]
+                @if (TempData["RSAEncryptedAesKey"] != null && TempData["RSAEncryptedAesIV"] != null)
+                {
+                    <div style="color:#fff; margin-top:10px;"><b>Şifrelenmiş AES Anahtarını Kaydedin:</b></div>
+                    <textarea rows="3" style="width:100%; background:#121212; color:lime; border:1px solid crimson; padding:10px; margin-top:5px;" readonly>@TempData["RSAEncryptedAesKey"]</textarea>
+                    <div style="color:#fff; margin-top:10px;"><b>Şifrelenmiş AES IV'sini Kaydedin:</b></div>
+                    <textarea rows="3" style="width:100%; background:#121212; color:lime; border:1px solid crimson; padding:10px; margin-top:5px;" readonly>@TempData["RSAEncryptedAesIV"]</textarea>
+                }
+                @if (TempData["RSAEncryptedTempFileName"] != null)
+                {
+                    <div style="color:#fff; margin-top:10px;"><b>Şifreli Dosyayı İndirin:</b></div>
+                    <a href="/Crypto/DownloadRSAEncryptedFile?fileName=@TempData["RSAEncryptedTempFileName"]" download="@TempData["RSAOriginalFileName"].ToString().Replace(".enc", "") + ".enc" class="btn btn-primary" style="margin-top:10px; background-color: crimson; border-color: crimson;">Şifreli Dosyayı İndir</a>
+                }
+            </div>
+        }
+    </form>
+
+    <!-- RSA File Decryption Form -->
+    <form method="post" enctype="multipart/form-data" action="/Crypto/DecryptRSAFile" class="card">
+        <h2>📂 RSA Dosya Deşifreleme (Hibrid)</h2>
+        <input type="file" name="file" required />
+        <textarea name="privateKey" placeholder="RSA Özel Anahtar (Boş bırakırsanız oturumdaki kullanılır)" rows="10"></textarea>
+        <textarea name="encryptedAesKeyBase64" placeholder="Şifrelenmiş AES Anahtarı (Base64)" rows="3" required></textarea>
+        <textarea name="encryptedAesIVBase64" placeholder="Şifrelenmiş AES IV (Base64)" rows="3" required></textarea>
+        <button type="submit" class="btn btn-primary" style="background-color: crimson; border-color: crimson;">Dosyayı Deşifrele</button>
+        @if (TempData["RSADecryptFileResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                <b>Sonuç:</b> @TempData["RSADecryptFileResult"]
+                @if (TempData["RSADecryptedTempFileName"] != null && TempData["RSADecryptedOriginalFileName"] != null)
+                {
+                    <div style="color:#fff; margin-top:10px;"><b>Deşifreli Dosyayı İndirin:</b></div>
+                    <a href="/Crypto/DownloadRSADecryptedFile?fileName=@TempData["RSADecryptedTempFileName"]&originalFileName=@TempData["RSADecryptedOriginalFileName"]" download="@TempData["RSADecryptedOriginalFileName"]" class="btn btn-primary" style="margin-top:10px; background-color: crimson; border-color: crimson;">Deşifreli Dosyayı İndir</a>
+                }
+            </div>
+        }
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function copyToClipboard(elementId) {
+            var element = document.getElementById(elementId);
+            element.select();
+            document.execCommand('copy');
+            alert('Kopyalandı!');
+        }
+    </script>
+} 

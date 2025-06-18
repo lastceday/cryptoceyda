@@ -1,0 +1,180 @@
+@* AES.cshtml *@
+@{
+    ViewData["Title"] = "AES İşlemleri";
+}
+
+<div class="text-center">
+    <h1 class="display-4">AES İşlemleri</h1>
+</div>
+
+<div class="card">
+    <h2>🔑 AES Anahtar ve IV Oluşturma</h2>
+    <div class="form-group">
+        <button type="button" id="generateKeyIV" class="btn btn-primary" style="background-color: crimson; border-color: crimson;">Yeni Anahtar ve IV Oluştur</button>
+    </div>
+    <div id="keyIVResult" style="display: none; margin-top: 10px;">
+        <div class="form-group">
+            <label for="generatedKey">Oluşturulan Anahtar (Base64):</label>
+            <div class="input-group">
+                <input type="text" id="generatedKey" class="form-control" readonly />
+                <button type="button" class="btn btn-secondary" onclick="copyToClipboard('generatedKey')">Kopyala</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="generatedIV">Oluşturulan IV (Base64):</label>
+            <div class="input-group">
+                <input type="text" id="generatedIV" class="form-control" readonly />
+                <button type="button" class="btn btn-secondary" onclick="copyToClipboard('generatedIV')">Kopyala</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form method="post" action="/Crypto/EncryptAES" class="card">
+        <h2>🔒 AES Metin Şifreleme</h2>
+        <input type="text" name="plainText" placeholder="Şifrelenecek Metin" required />
+        <input type="text" name="keyBase64" placeholder="Anahtar (Base64)" required />
+        <input type="text" name="ivBase64" placeholder="IV (Base64)" required />
+        <button type="submit">Şifrele</button>
+        @if (TempData["AESEncryptResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["AESEncryptInput"] != null)
+                {
+                    <div style="color:#fff;"><b>Girdi:</b> @TempData["AESEncryptInput"]</div>
+                }
+                @if (TempData["AESEncryptKey"] != null)
+                {
+                    <div style="color:#fff;"><b>Anahtar:</b> @TempData["AESEncryptKey"]</div>
+                }
+                @if (TempData["AESEncryptIV"] != null)
+                {
+                    <div style="color:#fff;"><b>IV:</b> @TempData["AESEncryptIV"]</div>
+                }
+                <b>Sonuç:</b> @TempData["AESEncryptResult"]
+            </div>
+        }
+    </form>
+
+    <form method="post" action="/Crypto/DecryptAES" class="card">
+        <h2>🔓 AES Metin Şifre Çözme</h2>
+        <input type="text" name="cipherTextBase64" placeholder="Şifreli Metin (Base64)" required />
+        <input type="text" name="keyBase64" placeholder="Anahtar (Base64)" required />
+        <input type="text" name="ivBase64" placeholder="IV (Base64)" required />
+        <button type="submit">Şifreyi Çöz</button>
+        @if (TempData["AESDecryptResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["AESDecryptInput"] != null)
+                {
+                    <div style="color:#fff;"><b>Şifreli Metin:</b> @TempData["AESDecryptInput"]</div>
+                }
+                @if (TempData["AESDecryptKey"] != null)
+                {
+                    <div style="color:#fff;"><b>Anahtar:</b> @TempData["AESDecryptKey"]</div>
+                }
+                @if (TempData["AESDecryptIV"] != null)
+                {
+                    <div style="color:#fff;"><b>IV:</b> @TempData["AESDecryptIV"]</div>
+                }
+                <b>Sonuç:</b> @TempData["AESDecryptResult"]
+            </div>
+        }
+    </form>
+
+    <form method="post" enctype="multipart/form-data" action="/Crypto/EncryptAESFile" class="card">
+        <h2>🔒 AES Dosya Şifreleme</h2>
+        <input type="file" name="file" required />
+        <input type="text" name="keyBase64" placeholder="Anahtar (Base64)" required />
+        <input type="text" name="ivBase64" placeholder="IV (Base64)" required />
+        <button type="submit">Dosyayı Şifrele</button>
+        @if (TempData["AESEncryptFileResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["AESEncryptFileName"] != null)
+                {
+                    <div style="color:#fff;"><b>Dosya:</b> @TempData["AESEncryptFileName"]</div>
+                }
+                @if (TempData["AESEncryptFileKey"] != null)
+                {
+                    <div style="color:#fff;"><b>Anahtar:</b> @TempData["AESEncryptFileKey"]</div>
+                }
+                @if (TempData["AESEncryptFileIV"] != null)
+                {
+                    <div style="color:#fff;"><b>IV:</b> @TempData["AESEncryptFileIV"]</div>
+                }
+                <b>Sonuç:</b> @TempData["AESEncryptFileResult"]
+                @if (TempData["AESEncryptedFileBase64"] != null)
+                {
+                    <div style="color:#fff; margin-top:10px;"><b>Şifreli Dosya İçeriği (Base64):</b></div>
+                    <textarea rows="5" style="width:100%; background:#121212; color:lime; border:1px solid crimson; padding:10px; margin-top:5px;" readonly>@TempData["AESEncryptedFileBase64"]</textarea>
+                    <a href="data:application/octet-stream;base64,@TempData["AESEncryptedFileBase64"]" download="encrypted_file.enc" class="btn btn-primary" style="margin-top:10px; background-color: crimson; border-color: crimson;">Şifreli Dosyayı İndir</a>
+                }
+            </div>
+        }
+    </form>
+
+    <form method="post" enctype="multipart/form-data" action="/Crypto/DecryptAESFile" class="card">
+        <h2>🔓 AES Dosya Şifre Çözme</h2>
+        <input type="file" name="file" required />
+        <input type="text" name="keyBase64" placeholder="Anahtar (Base64)" required />
+        <input type="text" name="ivBase64" placeholder="IV (Base64)" required />
+        <button type="submit">Dosya Şifresini Çöz</button>
+        @if (TempData["AESDecryptFileResult"] != null)
+        {
+            <div style="margin-top:10px; color:lime; word-break:break-all;">
+                @if (TempData["AESDecryptFileName"] != null)
+                {
+                    <div style="color:#fff;"><b>Dosya:</b> @TempData["AESDecryptFileName"]</div>
+                }
+                @if (TempData["AESDecryptFileKey"] != null)
+                {
+                    <div style="color:#fff;"><b>Anahtar:</b> @TempData["AESDecryptFileKey"]</div>
+                }
+                @if (TempData["AESDecryptFileIV"] != null)
+                {
+                    <div style="color:#fff;"><b>IV:</b> @TempData["AESDecryptFileIV"]</div>
+                }
+                <b>Sonuç:</b> @TempData["AESDecryptFileResult"]
+                @if (TempData["AESDecryptedFileBase64"] != null)
+                {
+                    <div style="color:#fff; margin-top:10px;"><b>Deşifreli Dosya İçeriği (Base64):</b></div>
+                    <textarea rows="5" style="width:100%; background:#121212; color:lime; border:1px solid crimson; padding:10px; margin-top:5px;" readonly>@TempData["AESDecryptedFileBase64"]</textarea>
+                    <a href="data:application/octet-stream;base64,@TempData["AESDecryptedFileBase64"]" download="decrypted_file" class="btn btn-primary" style="margin-top:10px; background-color: crimson; border-color: crimson;">Deşifreli Dosyayı İndir</a>
+                }
+            </div>
+        }
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function copyToClipboard(elementId) {
+            var element = document.getElementById(elementId);
+            element.select();
+            document.execCommand('copy');
+            alert('Kopyalandı!');
+        }
+
+        document.getElementById('generateKeyIV').addEventListener('click', function() {
+            // 32 bytes (256 bits) for key
+            var keyBytes = new Uint8Array(32);
+            // 16 bytes (128 bits) for IV
+            var ivBytes = new Uint8Array(16);
+            
+            // Fill with random values
+            window.crypto.getRandomValues(keyBytes);
+            window.crypto.getRandomValues(ivBytes);
+            
+            // Convert to Base64
+            var keyBase64 = btoa(String.fromCharCode.apply(null, keyBytes));
+            var ivBase64 = btoa(String.fromCharCode.apply(null, ivBytes));
+            
+            // Display results
+            document.getElementById('generatedKey').value = keyBase64;
+            document.getElementById('generatedIV').value = ivBase64;
+            document.getElementById('keyIVResult').style.display = 'block';
+        });
+    </script>
+} 
