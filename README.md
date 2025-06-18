@@ -90,3 +90,14 @@ Uygulama, RSA algoritması ile şifreli metni çözer ve orijinal metni ekranda 
 Bu özellik, daha önce RSA ile şifrelenmiş hassas verilerin güvenli bir şekilde geri elde edilmesini sağlar.
 
 
+### RSA Dosya Sifreleme
+
+![rsa dosya sifreleme](rsa-dosya-sifreleme.png)
+
+Bu ekranda, kullanıcı bir dosya seçip (örneğin bir PDF veya resim dosyası), isterse kendi RSA açık anahtarını girerek "Dosyayı Şifrele" butonuna tıklar.
+Uygulama, dosyayı önce rastgele üretilen bir AES anahtarı ve IV ile şifreler. Ardından, bu AES anahtarı ve IV, kullanıcının RSA açık anahtarı ile şifrelenir.
+Şifrelenmiş AES anahtarı ve IV ekranda ayrı ayrı gösterilir ve kopyalanabilir.
+Son olarak, şifreli dosya indirilebilir.
+Bu yöntem, büyük dosyaların hem hızlı hem de güvenli bir şekilde şifrelenmesini sağlar.
+
+
