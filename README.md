@@ -64,7 +64,7 @@ Bu özellik, dosyanın bütünlüğünü doğrulamak veya dosya değişiklikleri
 
 ### RSA Anahtar Çifti Oluşturma
 
-![rsa anahtar çifti](rsa%20anahtar%20cifti.png)
+![rsa anahtar cifti](rsa%20anahtar%20cifti.png)
 
 Bu ekranda, "RSA Anahtarları Oluştur" butonuna tıklayarak yeni bir RSA anahtar çifti (açık anahtar ve özel anahtar) oluşturabilirsiniz.
 Oluşturulan anahtarlar ekranda ayrı ayrı gösterilir ve yanlarındaki "Kopyala" butonları ile kolayca panoya kopyalanabilir.
