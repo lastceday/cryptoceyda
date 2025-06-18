@@ -80,3 +80,13 @@ Bu ekranda, kullanıcı şifrelemek istediği metni ve (isterse) kullanmak isted
 "Şifrele" butonuna tıkladığında, girilen metin RSA algoritması ile şifrelenir ve ekranda şifreli metin ile birlikte kullanılan açık anahtarın bir kısmı gösterilir.
 Bu özellik, hassas metinlerin güvenli bir şekilde şifrelenmesini ve başka bir tarafa güvenle iletilmesini sağlar.
 
+
+### RSA Metin Deşifreleme
+
+![rsa metin desifreleme](rsa-metin-desifreleme.png)
+
+Bu ekranda, kullanıcı şifreli bir metni ve ilgili RSA özel anahtarını girerek "Deşifrele" butonuna tıklar.
+Uygulama, RSA algoritması ile şifreli metni çözer ve orijinal metni ekranda gösterir.
+Bu özellik, daha önce RSA ile şifrelenmiş hassas verilerin güvenli bir şekilde geri elde edilmesini sağlar.
+
+
