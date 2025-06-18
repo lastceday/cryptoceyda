@@ -132,7 +132,7 @@ Bu özellik, metinlerin hızlı ve güvenli bir şekilde şifrelenmesini sağlar
 
 ### AES Metin Desifreleme
 
-![aes metin desifreleme ](aes-metin-desifreleme.png)
+![aes metin desifreleme ](aes-metin-sifre-cozme.png)
 
 Bu ekranda, kullanıcı daha önce AES algoritması ile şifrelenmiş bir metni, ilgili anahtar (Base64) ve IV (Base64) bilgileriyle birlikte girer.
 "Şifreyi Çöz" butonuna tıkladığında, uygulama şifreli metni çözer ve orijinal metni ekranda gösterir.
