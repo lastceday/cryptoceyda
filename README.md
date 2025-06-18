@@ -33,7 +33,7 @@ Bu projeyi hem teorik bilgimi pratiğe dökmek hem de modern şifreleme algoritm
 **CryptoCeyda**, hem kriptografi öğrenmek isteyenler hem de günlük hayatta veri güvenliğine önem veren kullanıcılar için pratik ve güvenli bir çözüm sunar.
 
 ---
-###EKRAN GÖRÜNTÜLERİ
+### EKRAN GÖRÜNTÜLERİ
 
 ### ANASAYFA
 
