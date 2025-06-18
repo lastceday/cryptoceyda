@@ -74,7 +74,7 @@ Bu anahtarlar, metin veya dosya şifreleme/deşifreleme işlemlerinde kullanılm
 
 ### RSA Metin Şifreleme
 
-![rsa metin sifreleme](rsa%20metin%20sifreleme.png)
+![rsa metin sifreleme](rsa-metin-sifreleme.png)
 
 Bu ekranda, kullanıcı şifrelemek istediği metni ve (isterse) kullanmak istediği RSA açık anahtarını girer.
 "Şifrele" butonuna tıkladığında, girilen metin RSA algoritması ile şifrelenir ve ekranda şifreli metin ile birlikte kullanılan açık anahtarın bir kısmı gösterilir.
